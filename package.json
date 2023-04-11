@@ -1,0 +1,23 @@
+{
+  "name": "near-me-toilet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gagataiga/Near-Me-Toilet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gagataiga/Near-Me-Toilet/issues"
+  },
+  "homepage": "https://github.com/gagataiga/Near-Me-Toilet#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
