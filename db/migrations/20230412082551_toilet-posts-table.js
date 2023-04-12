@@ -7,7 +7,7 @@ const { table } = require("console");
 exports.up = async function (knex) {
   return await knex.schema.createTable("toilet_posts", (table) => {
     table.increments("id");
-    table.number("rating");
+    table.integer("rating");
     table.string("Paper");
     table.string("comment");
     table.increments("location_id")
