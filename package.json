@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server/index.js",
-    "migrate": "knex migrate:latest",
-    "seed": "knex seed:make"
+    "client": "cd client && npm run start",
+    "make-migration": "knex migrate:make",
+    "make-seed": "knex seed:make",
+    "seed": "knex seed:run",
+    "migrate": "knex migrate:latest"
   },
   "repository": {
     "type": "git",
