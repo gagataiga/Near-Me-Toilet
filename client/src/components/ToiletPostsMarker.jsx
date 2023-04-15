@@ -1,9 +1,15 @@
 import {Marker, Popup, useMap } from "react-leaflet";
 import React, { useEffect, useState } from "react";
-// import L from "leaflet";
+import L from "leaflet";
+import toilet from "../img/toilet.png";
 
-export default function ToiletPostsMarker() { 
-
+export default function ToiletPostsMarker() {
+  
+   const markerIcon = new L.icon({
+    iconUrl: toilet,
+    iconSize: [50, 40]
+   })
+  
   const toiletPosts = [{
       longitude: 14.29886,
       latitude: 48.303120,
@@ -34,7 +40,7 @@ export default function ToiletPostsMarker() {
   ]
 
   return toiletPosts.map((post, index) => {
-    return <Marker key={index} position={[post.latitude, post.longitude]}>
+    return <Marker key={index} position={[post.latitude, post.longitude]} icon={markerIcon}>
       <Popup>
         Rating: {post.rating}  <br />
         Paper: {post.paper} <br />
