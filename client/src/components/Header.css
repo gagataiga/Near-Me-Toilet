@@ -1,0 +1,34 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  /* height: 10px; */
+  height: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+.header h1{
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px
+}
+
+.button-container{
+  margin-right: 5%;
+}
+
+.to-post{
+  width: 60px;
+  height: 30px;
+  background-color: #18fdb9d4; 
+  box-shadow: 0 5px 0 #46b2f68a;
+  border-radius: 60px;
+  color: #000000;
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+.to-post:active {
+  box-shadow: none;
+  transform: translateY(3px);
+}
