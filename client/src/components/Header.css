@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   /* height: 10px; */
-  height: 50px;
+  height: 60px;
   align-items: center;
   text-align: center;
 }
@@ -17,9 +17,9 @@
   margin-right: 5%;
 }
 
-.to-post{
+.btn{
   width: 60px;
-  height: 30px;
+  height: 40px;
   background-color: #18fdb9d4; 
   box-shadow: 0 5px 0 #46b2f68a;
   border-radius: 60px;
@@ -28,7 +28,7 @@
   text-decoration: none; 
 }
 
-.to-post:active {
+.btn:active {
   box-shadow: none;
   transform: translateY(3px);
 }
