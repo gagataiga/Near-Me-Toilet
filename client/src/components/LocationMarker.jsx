@@ -8,10 +8,11 @@ export default function LocationMarker() {
 
   const map = useMap();
 
-  const markerIcon = new L.icon({
-    iconUrl: person,
-    iconSize: [80, 80]
-  })
+  // const markerIcon = new L.icon({
+  //   iconUrl: person,
+  //   iconSize: [80, 80]
+  // });
+
   useEffect(() => {
     map.locate().on("locationfound", function (e) {
       setPosition(e.latlng);
@@ -23,9 +24,9 @@ export default function LocationMarker() {
   }, []);
 
   return position === null ? null : (
-    <Marker position={position} icon={markerIcon}>
+    <Marker position={position} >
       <Popup>
-      This is your location
+        This is your location
       </Popup>
     </Marker>
   )
