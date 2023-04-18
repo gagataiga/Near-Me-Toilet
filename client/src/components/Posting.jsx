@@ -64,16 +64,14 @@ export default function Posting() {
             <label htmlFor="toilet-free-no">No</label>
         </fieldset>  
         
-        <label for="comment">Please comment</label>
+        <label htmlFor="comment">Please comment</label>
           <textarea id="message" name="comment" rows="10"></textarea>
        
           <div>
-           
+            <label htmlFor="image-upload">Toilet Image :
+              <input type="file" name="image" id="image-upload" idaccept="image/*" />
+            </label>
           </div>
-
-          <label htmlFor="image-upload">Toilet Image :
-          <input type="file" name="image" id="image-upload" idaccept="image/*" />
-          </label>
 
           <button type="submit">Post</button>
       </form>
