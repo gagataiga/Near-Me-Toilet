@@ -7,7 +7,6 @@ export default function Post() {
   return (
     <>
       <Header path="home" />
-      
       <Posting />
     </>
   )
