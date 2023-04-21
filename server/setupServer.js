@@ -4,7 +4,7 @@ const postsRouter = require("./router/posts-router");
 
 function setupServer() { 
   const app = express();
-
+  // use json
   app.use(express.json());
   // posts
   app.use('/posts', postsRouter);
