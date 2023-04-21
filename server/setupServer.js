@@ -8,8 +8,8 @@ function setupServer() {
   app.use(express.json());
   // posts
   app.use('/posts', postsRouter);
-  
-  app.get('/api/hello', (req, res) => {
+  // to check server working
+  app.get('/hello', (req, res) => {
     res.send('world')
   });
   
