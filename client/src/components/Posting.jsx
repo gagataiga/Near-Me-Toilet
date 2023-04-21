@@ -35,7 +35,6 @@ export default function Posting() {
     const formData = new FormData()
     // append image file
     formData.append('image', file);
-    console.log(formData.get("image"));
     const response = await axios.post("/posts/uploadImage", formData, { headers: { 'Content-Type': 'multipart/form-data' }});
   }
 
