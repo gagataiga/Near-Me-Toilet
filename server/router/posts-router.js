@@ -9,6 +9,7 @@ const upload = multer({ storage });
 // upload image 
 async function handleUpload(file) {
   const res = await cloudinary.uploader.upload(file, {
+    folder: "posts",
     resource_type: "auto",
    });
   return res;
