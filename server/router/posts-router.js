@@ -16,6 +16,17 @@ async function handleUpload(file) {
   return res;
 }
 
+// get all posts
+router.get("/", async (req, res) => {
+  try { 
+    const allPostsData = await toilet_posts_model.getAllPosts();
+    res.status(200).send(allPostsData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("server error");
+  }
+});
+
 // 
 router.post("/", async (req, res) => {
   const { latitude, longitude, rating, free, paper,image_url,comment} = req.body;
@@ -24,13 +35,6 @@ router.post("/", async (req, res) => {
     const locations = { longitude: longitude, latitude: latitude };
     const location_id = await locations_model.insertLocation(locations);
 
-    const location = await locations_model.getLocationById(location_id[0].id);
-    console.log(location);
-
-  // just check 
-  if (!location) {
-  return res.status(400).json({ message: 'Invalid location_id' });
-  }
     const post = {
       rating: parseInt(rating),
       comment: comment,

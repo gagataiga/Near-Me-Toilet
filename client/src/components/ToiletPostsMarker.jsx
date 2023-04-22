@@ -2,6 +2,8 @@ import {Marker, Popup, useMap } from "react-leaflet";
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import toilet from "../img/toilet.png";
+import axios from "axios";
+import "./ToiletPostsMarker.css";
 
 export default function ToiletPostsMarker() {
   
@@ -9,6 +11,19 @@ export default function ToiletPostsMarker() {
     iconUrl: toilet,
     iconSize: [50, 40]
    })
+  
+  const [posts,setPosts] = useState([]);
+  
+  async function fetchAllPosts() { 
+    const response = await axios.get("/posts/");
+    setPosts(response.data);
+    console.log(response.data);
+    return response;
+  }
+
+  useEffect(() => { 
+    fetchAllPosts();
+  }, []);
   
   const toiletPosts = [{
       longitude: 14.29886,
@@ -39,13 +54,16 @@ export default function ToiletPostsMarker() {
     }
   ]
 
-  return toiletPosts.map((post, index) => {
+  return posts.map((post, index) => {
     return <Marker key={index} position={[post.latitude, post.longitude]} icon={markerIcon}>
       <Popup>
-        Rating: {post.rating}  <br />
-        Paper: {post.paper} <br />
-        Free: {post.free} <br />
-        comment: {post.comment}
+        <img src={post.image_url} />
+        <div>
+          Rating: {post.rating}  <br />
+          Paper: {post.paper} <br />
+          Free: {post.free} <br />
+          comment: {post.comment}
+        </div>
       </Popup>
     </Marker>
   });
