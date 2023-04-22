@@ -5,37 +5,52 @@ import LocationMarker from "./LocationMarker";
 import axios from "axios";
 
 export default function Posting() { 
+
+  const [postData, setPostData] = useState({
+        longitude: 0,
+        latitude: 0,
+        rating: 0,
+        paper: "",
+        free: "",
+        comment: "",
+    });
   
   const [file, setImageFile] = useState({});
 
-  const [postData, setPostData] = useState({
-      longitude: 0,
-      latitude: 0,
-      rating: 0,
-      paper: "",
-      free: "",
-      comment: "",
-      image: {}
-  });
+  // user location
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setPostData({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      })
+     });
+  }, []);
 
   const handlePostDataChange = event => { 
-    console.log(event.target.value);
-    const { name, value } = event.target;
+    const { name, value } = event.target;   
     setPostData(prevState => ( { ...prevState, [name]: value } ));
   }
 
   const handlePostImageChange = (event) => { 
-    const { name } = event.target;
-    setPostData(prevState => ({ ...prevState, [name]: event.target.files[0].name }));
     setImageFile(event.target.files[0]);
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData()
-    // append image file
+    const formData = new FormData();
     formData.append('image', file);
-    const response = await axios.post("/posts/uploadImage", formData, { headers: { 'Content-Type': 'multipart/form-data' }});
+    const imageURL = await axios.post("/posts/uploadImage", formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+    
+    // posts all data 
+    const newPostData = {
+      ...postData,
+      image_url: imageURL.data
+    }
+    
+    console.log("postData", newPostData);
+    const response = await axios.post("/posts/", newPostData);
+    console.log(response);
   }
 
   const defaultCenter = [51.51648, -0.12778];
@@ -92,7 +107,7 @@ export default function Posting() {
 
           <div>
             <label htmlFor="image-upload">Toilet Image :
-              <input type="file" name="image" id="image-upload" onChange={handlePostImageChange} idaccept="image/*" />
+              <input type="file" name="image" id="image-upload" onChange={handlePostImageChange}idaccept="image/*" />
             </label>
           </div>
 
