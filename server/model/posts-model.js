@@ -9,6 +9,8 @@ module.exports = {
       .insert(post);
   },
   getAllPosts() { 
-    return knex()
+    return knex(POSTS_TABLE)
+      .select("rating","comment","longitude","latitude","paper","free","image_url")
+      .join("locations", "toilet_posts.location_id", "locations.id")
   }
 }
