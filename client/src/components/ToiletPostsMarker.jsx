@@ -24,35 +24,14 @@ export default function ToiletPostsMarker() {
   useEffect(() => { 
     fetchAllPosts();
   }, []);
-  
-  const toiletPosts = [{
-      longitude: 14.29886,
-      latitude: 48.303120,
-      rating: 1,
-      comment: "Maybe it hasn't been cleaned in a long time",
-      location_id: 1,
-      paper: "No",
-      free: "Yes"
-    },
-    {
-      longitude: 14.28751,
-      latitude: 48.30348,
-      rating: 1,
-      comment: "hogeですね",
-      location_id: 2,
-      paper: "No",
-      free: "Yes"
-    },
-    {
-      longitude: 14.28847,
-      latitude: 48.30429,
-      rating: 1,
-      comment: "Maybe it hasn't been cleaned in a long time",
-      location_id: 3,
-      paper: "No",
-      free: "Yes"
+
+  function makingStars(post) {
+    const result = "";
+    for (let i=0; i < post.rating; i++) {
+      console.log()
     }
-  ]
+    return result;
+  }
 
   return posts.map((post, index) => {
     return <Marker key={index} position={[post.latitude, post.longitude]} icon={markerIcon}>
@@ -60,9 +39,9 @@ export default function ToiletPostsMarker() {
         <img src={post.image_url} />
         <div>
           Rating: {post.rating}  <br />
-          Paper: {post.paper} <br />
-          Free: {post.free} <br />
-          comment: {post.comment}
+          Paper 🧻: {post.paper} <br />
+          Free 💰: {post.free} <br />
+          comment📝: {post.comment}
         </div>
       </Popup>
     </Marker>

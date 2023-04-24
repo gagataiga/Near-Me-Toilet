@@ -20,7 +20,7 @@ exports.seed = async function(knex) {
       location_id: 14,
       paper: "Yes",
       free: "Yes",
-      image_url:"http://res.cloudinary.com/dhavpujjp/image/upload/v1682117643/posts/ng9rdat37mrvswfsljzf.png"
+      image_url:"https://res.cloudinary.com/dhavpujjp/image/upload/v1682365185/wuy6dipvtoqdggshygjh.jpg"
     },
     {
       rating: 2,
