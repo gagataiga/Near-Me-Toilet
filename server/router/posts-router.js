@@ -43,9 +43,7 @@ router.post("/", async (req, res) => {
       free: free,
       image_url: image_url
     }
-    console.log(image_url);
     const response = await toilet_posts_model.insertPost(post);
-    console.log(response);
     res.status(200).send("Posting is success");
 
     } catch (err) { 
@@ -60,7 +58,6 @@ router.post("/uploadImage", upload.single('image'), async (req, res) => {
     const b64 = Buffer.from(req.file.buffer).toString("base64");
     let dataURL = "data:" + req.file.mimetype + ";base64," + b64;
     let response = await handleUpload(dataURL);
-    console.log("🟩", response);
     // response should be url 
     res.status(200).send(response.secure_url);
   } catch (err){ 
