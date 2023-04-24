@@ -17,7 +17,6 @@ export default function ToiletPostsMarker() {
   async function fetchAllPosts() { 
     const response = await axios.get("/posts/");
     setPosts(response.data);
-    console.log(response.data);
     return response;
   }
 
@@ -25,10 +24,10 @@ export default function ToiletPostsMarker() {
     fetchAllPosts();
   }, []);
 
-  function makingStars(post) {
-    const result = "";
-    for (let i=0; i < post.rating; i++) {
-      console.log()
+  function makingStars(rating) {
+    let result = "";
+    for (let i = 0; i < rating; i++) {
+      result += "⭐️";
     }
     return result;
   }
@@ -38,10 +37,10 @@ export default function ToiletPostsMarker() {
       <Popup>
         <img src={post.image_url} />
         <div>
-          Rating: {post.rating}  <br />
+          Rating: {makingStars(post.rating)}  <br />
           Paper 🧻: {post.paper} <br />
           Free 💰: {post.free} <br />
-          comment📝: {post.comment}
+          <textarea className="comment-area" disabled defaultValue={post.comment}></textarea>
         </div>
       </Popup>
     </Marker>

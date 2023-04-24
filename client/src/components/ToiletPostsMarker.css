@@ -6,3 +6,8 @@ img{
 p{
   margin: 0px;
 }
+
+.comment-area{
+  width: 100%;
+  resize: none;
+}
