@@ -53,8 +53,9 @@ $npm run seed
 
 # Backend
 
-## database schima 
+## database schema 
 Toilet_posts table has a foreign key reference between location table's id
+
 ![Application](img/db_schima.png)
 
 ## API
@@ -85,7 +86,7 @@ module.exports = router;
 
 "/components" is for reuse components
 
-## Helpfu Resources
+## Resources
 [React Router Docs](https://reactrouter.com/en/main)
 
 [Leaflet](https://leafletjs.com/)
