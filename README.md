@@ -1,7 +1,12 @@
 # Near-Me-Toilet🚽🚻
-
+## What is Near-Me-Toilet
 "Near-me-toilet" is one of the application that can show you toilet or restrooms near you. User can post a toilet that they found somewhere.
-![Application](img/near_me_toilet.png)
+
+## What I want to solve with this app
+The reason why I created this app is because in countries other than Japan, toilets are charged and it is very difficult to find a toilet in an unknown place.
+
+<img src="img/near_me_toilet.png" width="300px" height="500px">
+
 
 # Directory Structure
 ```js
@@ -34,16 +39,9 @@ $npm install
 // setting up .env file. this down below is example
 $touch .env
 
-// after making .env file If you are not familiar with the command, you can make and edit.env file instead of using commands.
+// after making .env file If you are not familiar with the command, you can make and edit .env file instead of using commands.
 $vi .env 
-
-DB_NAME=anyName
-DB_USER=postgres
-DB_PASSWORD=yourStrongPassword
-NODE_ENV=development
-CLOUDINARY_NAME=cloudinary_apiname
-CLOUDINARY_API_KEY=apikey
-CLOUDINARY_API_SECRET=secretkey
+// Please make sure that how to set up env file. there is .env example
 
 // after setting up .env file , you can set up inside of seed file and run migration and seed files
 $npm run migration
@@ -93,7 +91,7 @@ module.exports = router;
 
 [leaflet React](https://react-leaflet.js.org/)
 
-[Cloudinart](https://cloudinary.com/)
+[Cloudinary](https://cloudinary.com/)
 
 [Express](https://expressjs.com/)
 

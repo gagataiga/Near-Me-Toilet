@@ -43,7 +43,9 @@ router.post("/", async (req, res) => {
       free: free,
       image_url: image_url
     }
+
     const response = await toilet_posts_model.insertPost(post);
+    
     res.status(200).send("Posting is success");
 
     } catch (err) { 

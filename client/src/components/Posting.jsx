@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
 import "./Posting.css";
 import { MapContainer, TileLayer} from 'react-leaflet';
 import LocationMarker from "./LocationMarker";
@@ -56,11 +55,12 @@ export default function Posting() {
 
   return (
         <>
-          <div className="map-container">
-            <div >
+      <div className="map-container">
+            <div className="message-to-user">
               <p>
-              Did you find a new toilet? The position you are in must be the position where the toilet is.
-              </p>
+               Would you like to volunteer to post new toilets?
+              <br /> Please fill out items down below. Thank you for your help
+             </p>
             </div>
             <MapContainer center={defaultCenter} zoom={zoom} scrollWheelZoom style={{ height: "30vh" ,width:"100%"}}>
             <TileLayer
