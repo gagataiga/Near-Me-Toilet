@@ -59,7 +59,7 @@ export default function Posting() {
             <div className="message-to-user">
               <p>
                Would you like to volunteer to post new toilets?
-              <br /> Please fill out items down below. Thank you for your help
+              <br /> Please fill out items down below. <br/> Thank you for your help
              </p>
             </div>
             <MapContainer center={defaultCenter} zoom={zoom} scrollWheelZoom style={{ height: "30vh" ,width:"100%"}}>
